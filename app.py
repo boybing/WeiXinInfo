@@ -38,7 +38,7 @@ def home():
     """Render website's home page."""
     try:
         message = request.args.get('code')
-        return jsonify(code=200, status=0, message=message+datetime.datetime.now().strftime('%Y-%m-%d-%H'))
+        return jsonify(code=200, status=0, message=message+datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     except:
         return render_template('404.html'), 404
 
