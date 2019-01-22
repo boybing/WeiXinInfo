@@ -4,6 +4,7 @@ import os
 from flask import Flask, render_template, request, jsonify
 import hashlib
 import json
+import datetime
 
 app = Flask(__name__)
 
@@ -37,7 +38,7 @@ def home():
     """Render website's home page."""
     try:
         message = request.args.get('code')
-        return jsonify(code=200, status=0, message=message)
+        return jsonify(code=200, status=0, message=message+datetime.datetime.now().strftime('%Y-%m-%d-%H'))
     except:
         return render_template('404.html'), 404
 
